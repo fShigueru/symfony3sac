@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title'|transchoice(0,{}, 'messages') }}
+{% endblock %}
+
+{% block body -%}
+    <div class="page-header">
+        <h2>{{ 'title.chamado.novo'|transchoice(0,{}, 'messages') }}</h2>
+    </div>
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        <div ng-if="blocoNumPedido">
+            <label class="control-label">
+                {{ form.pedido.numPedido.vars.label|transchoice(0,{}, 'messages') }}
+            </label>
+            <div class="input-group">
+                {{ form_row(form.pedido.numPedido, { 'label': false }) }}
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-primary" ng-click="verificarNumeroPedido(numPedido)">
+                        {{ 'btn.verificar'|transchoice(0,{}, 'messages') }}
+                    </button>
+                </div>
+            </div>
+            <div class="alert alert-danger alert-dismissible fade in" role="alert" ng-if="blocoNumError">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <strong ng-bind="msgNumError"></strong>
+            </div>
+        </div>
+        <div ng-if="blocoEmail">
+            <br />
+            <label class="control-label">
+                {{ form.cliente.email.vars.label|transchoice(0,{}, 'messages') }}
+            </label>
+            <div class="input-group">
+                {{ form_row(form.cliente.email, { 'label': false }) }}
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-primary" ng-click="verificarClienteEmail(cliente)">
+                        {{ 'btn.verificar'|transchoice(0,{}, 'messages') }}
+                    </button>
+                </div>
+            </div>
+            <br />
+        </div>
+        <div class="form-group" ng-if="blocoNome">
+            <label class="control-label">
+                {{ form.cliente.nome.vars.label|transchoice(0,{}, 'messages') }}
+            </label>
+            {{ form_row(form.cliente.nome, { 'label': false }) }}
+        </div>
+        <div ng-if="blocoChamado">
+            <div class="form-group">
+                <label class="control-label">
+                    {{ form.titulo.vars.label|transchoice(0,{}, 'messages') }}
+                </label>
+                {{ form_row(form.titulo, { 'label': false }) }}
+            </div>
+            <div class="form-group">
+                <label class="control-label">
+                    {{ form.observacao.vars.label|transchoice(0,{}, 'messages') }}
+                </label>
+                {{ form_row(form.observacao, { 'label': false }) }}
+            </div>
+        </div>
+        <div class="loader" ng-show="loader"></div>
+        <hr />
+        {{ form_row(form.submit, {'attr': {'ng-disabled': 'chamado.$invalid'}}) }}
+
+    {{form_end(form) }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts
+    '@SacBundle/Resources/public/js/angular/value/configValue.js'
+    '@angular_http_post'
+    '@SacBundle/Resources/public/js/angular/controller/sacCtrl.js'
+    output='sac/js/script.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

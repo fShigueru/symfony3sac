@@ -1,0 +1,6 @@
+services:
+  sac.service.sac:
+    class: SacBundle\Service\SacService
+    arguments:
+      - "@doctrine.orm.default_entity_manager"
+      - "@translator.default"

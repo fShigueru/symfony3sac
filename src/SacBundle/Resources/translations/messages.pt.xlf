@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="pt" target-language="pt" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>title</source>
+                <target>Sistema de Sac</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>msg.error.pedido.existe</source>
+                <target>Pedido não existe!</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>msg.error.pedido.num.existe</source>
+                <target>O número do pedido não foi enviado.</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>title.numero.pedido</source>
+                <target>Número do pedido</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>btn.verificar</source>
+                <target>Verificar</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>title.title</source>
+                <target>Título</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>title.observacao</source>
+                <target>Observação</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>title.enviar</source>
+                <target>Enviar</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>title.nome</source>
+                <target>Nome</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>title.email</source>
+                <target>E-mail</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>title.chamado.novo</source>
+                <target>Novo chamado</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>msg.error.cadastro</source>
+                <target>Erro ao enviar o chamado </target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>msg.sucess.cadastro</source>
+                <target>Chamado enviado com sucesso!</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}Sac{% endblock %}</title>
+        {% block stylesheets %}
+            {% stylesheets
+            '@bootstrap_css'
+            '@SacBundle/Resources/public/scss/style.scss'
+            combine=true
+            filter='uglifycss'
+            filter='scssphp'
+            filter='cssrewrite'
+            output='sac/css/main.css'
+            %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <div class="container" ng-controller="SacCtrl">
+            {{ include('@Sac/elements/alertas/error.html.twig') }}
+            {{ include('@Sac/elements/alertas/sucesso.html.twig') }}
+            {% block body %}{% endblock %}
+        </div>
+        {% block javascripts %}
+            {% javascripts
+            '@jquery'
+            '@bootstrap'
+            '@angular'
+            '@angular_init'
+            filter='uglifyjs2'
+            output='sac/js/main.js'
+            %}
+            <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+    {#combine=true
+            filter='uglifyjs2'#}
+    </body>
+</html>
