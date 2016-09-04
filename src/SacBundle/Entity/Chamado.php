@@ -27,7 +27,7 @@ class Chamado implements IChamado
      *
      * @ORM\Column(name="titulo", type="string", length=150)
      * @Assert\NotBlank(
-     *     message = "O Título é obrigatório."
+     *     message = "msg.chamado.titulo.obrigatorio"
      * )
      */
     private $titulo;
@@ -36,6 +36,9 @@ class Chamado implements IChamado
      * @var string
      *
      * @ORM\Column(name="observacao", type="string", length=255)
+     * @Assert\NotBlank(
+     *     message = "msg.chamado.observacao.obrigatorio"
+     * )
      */
     private $observacao;
 

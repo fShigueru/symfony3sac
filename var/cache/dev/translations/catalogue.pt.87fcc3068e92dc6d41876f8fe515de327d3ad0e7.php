@@ -99,6 +99,17 @@ $catalogue = new MessageCatalogue('pt', array (
     'title.chamado.novo' => 'Novo chamado',
     'msg.error.cadastro' => 'Erro ao enviar o chamado ',
     'msg.sucess.cadastro' => 'Chamado enviado com sucesso!',
+    'msg.chamado.titulo.obrigatorio' => 'O Título é obrigatório.',
+    'msg.chamado.observacao.obrigatorio' => 'A Observação é obrigatória',
+    'msg.cliente.nome.obrigatorio' => 'O Nome não pode ser em branco.',
+    'msg.cliente.email.obrigatorio' => 'O E-mail não pode ser em branco.',
+    'msg.pedido.num.obrigatorio' => 'Por favor, entre com o número do pedido.',
+    'title.filtrar' => 'Filtrar',
+    'title.relatorio' => '{0} Relatório | {1} Relatórios',
+    'title.cliente' => '{0} Cliente | {1} Clientes',
+    'title.pedido' => '{0} Pedido | {1} Pedidos',
+    'title.enviar.chamado' => 'Enviar chamado',
+    'title.home' => 'Home',
   ),
 ));
 

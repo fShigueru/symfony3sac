@@ -1,7 +1,6 @@
 <?php
 
 namespace SacBundle\Repository;
-use SacBundle\Entity\IPedido;
 
 /**
  * PedidoRepository

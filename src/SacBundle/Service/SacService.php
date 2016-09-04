@@ -70,4 +70,25 @@ class SacService implements ISacService
 
         return $chamado;
     }
+
+    public function busca(IChamado $entity, $pag)
+    {
+        $limit = 5;
+        $url = null;
+
+        $paginator = $this->em->getRepository('SacBundle:Chamado')->busca($entity, $pag, $limit);
+        $maxPages = ceil($paginator->count() / $limit);
+        $interator = $paginator->getIterator();
+
+        if($pag){
+            if($entity->getCliente()->getEmail()){
+                $url.= "busca[email]=".$entity->getCliente()->getEmail()."&";
+            }
+            if($entity->getPedido()->getNumPedido()){
+                $url.= "busca[numPedido]=".$entity->getPedido()->getNumPedido()."&";
+            }
+        }
+
+        return [$interator,$maxPages,$url];
+    }
 }

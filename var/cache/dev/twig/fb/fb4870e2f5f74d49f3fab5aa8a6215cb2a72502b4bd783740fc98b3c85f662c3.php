@@ -1,6 +1,6 @@
 <?php
 
-/* @WebProfiler/Profiler/toolbar.css.twig */
+/* WebProfilerBundle:Profiler:toolbar.css.twig */
 class __TwigTemplate_8cb60421e7237d6d20c69c5e8556911afa0b633e2d85a47edd12fc69c3d63eb0 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -15,8 +15,8 @@ class __TwigTemplate_8cb60421e7237d6d20c69c5e8556911afa0b633e2d85a47edd12fc69c3d
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_4b104430a90d8a3306ea40f9069943219a703974c24caa16a45be3a347b76eaa = $this->env->getExtension("native_profiler");
-        $__internal_4b104430a90d8a3306ea40f9069943219a703974c24caa16a45be3a347b76eaa->enter($__internal_4b104430a90d8a3306ea40f9069943219a703974c24caa16a45be3a347b76eaa_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@WebProfiler/Profiler/toolbar.css.twig"));
+        $__internal_0cd791ec45fefcdb66bb6c840157beeccff71775d845111d1754c8675b57ab0f = $this->env->getExtension("native_profiler");
+        $__internal_0cd791ec45fefcdb66bb6c840157beeccff71775d845111d1754c8675b57ab0f->enter($__internal_0cd791ec45fefcdb66bb6c840157beeccff71775d845111d1754c8675b57ab0f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "WebProfilerBundle:Profiler:toolbar.css.twig"));
 
         // line 2
         $context["colors"] = array("success" => "#4F805D", "warning" => "#A46A1F", "error" => "#B0413E");
@@ -551,13 +551,13 @@ class __TwigTemplate_8cb60421e7237d6d20c69c5e8556911afa0b633e2d85a47edd12fc69c3d
 }
 ";
         
-        $__internal_4b104430a90d8a3306ea40f9069943219a703974c24caa16a45be3a347b76eaa->leave($__internal_4b104430a90d8a3306ea40f9069943219a703974c24caa16a45be3a347b76eaa_prof);
+        $__internal_0cd791ec45fefcdb66bb6c840157beeccff71775d845111d1754c8675b57ab0f->leave($__internal_0cd791ec45fefcdb66bb6c840157beeccff71775d845111d1754c8675b57ab0f_prof);
 
     }
 
     public function getTemplateName()
     {
-        return "@WebProfiler/Profiler/toolbar.css.twig";
+        return "WebProfilerBundle:Profiler:toolbar.css.twig";
     }
 
     public function isTraitable()

@@ -11,7 +11,7 @@ interface ISacService
 {
     /**
      * Persiste um novo chamado no banco de dados
-     * @param IChamado $pedido
+     * @param IChamado $chamado
      * @return mixed
      */
     public function save(IChamado $chamado);
@@ -37,4 +37,11 @@ interface ISacService
      * @return mixed
      */
     public function preparChamado(array $objetos, $params);
+
+    /**
+     * @param IChamado $entity
+     * @param int $pag
+     * @return mixed
+     */
+    public function busca(IChamado $entity, $pag);
 }

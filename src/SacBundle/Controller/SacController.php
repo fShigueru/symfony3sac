@@ -5,6 +5,7 @@ namespace SacBundle\Controller;
 use Doctrine\Common\Collections\ArrayCollection;
 use SacBundle\Entity\Cliente;
 use SacBundle\Entity\Pedido;
+use SacBundle\Form\BuscaType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -27,6 +28,45 @@ class SacController extends Controller
     }
 
     /**
+     * @Route("/sac/chamado/relatorios", name="sac_relatorio")
+     * @Template()
+     */
+    public function relatorioAction(Request $request)
+    {
+        $busca = $request->query->get('busca');
+        $pag = $request->query->get('page');
+        $pag =  ($pag == null ? 1 : $pag);
+
+        $chamado = new Chamado();
+        $pedido = new Pedido();
+        $cliente = new Cliente();
+
+        if(!empty($busca['numPedido']))
+            $pedido->setNumPedido($busca['numPedido']);
+
+        if(!empty($busca['email']))
+            $cliente->setEmail($busca['email']);
+
+        $chamado->setCliente($cliente);
+        $chamado->setPedido($pedido);
+
+        list($entities,$maxPages,$url) = $this->get('sac.service.sac')->busca($chamado,$pag);
+
+        $form = $this->createForm('SacBundle\Form\BuscaType', null, array(
+            'action' => $this->generateUrl('sac_relatorio'),
+            'method' => 'GET'
+        ));
+
+        return [
+            'entities' => $entities,
+            'maxPages' => $maxPages,
+            'thisPage' => $pag,
+            'url' => $url,
+            'form' => $form->createView()
+        ];
+    }
+
+    /**
      * Creates a new Chamado entity.
      *
      * @Route("/sac/chamado/new", name="sac_new")
@@ -38,28 +78,30 @@ class SacController extends Controller
         list($entity, $form) = $this->createCreateForm($request);
         $form->handleRequest($request);
 
-        $translated = $this->get('translator');
-        $session = $this->get('session');
         $retorno =  [
             'entity' => $entity,
             'form' => $form->createView()
         ];
-        if ($form->isSubmitted() && $form->isValid()) {
-            try{
-                $this->get('sac.service.sac')->save($entity);
-            }catch(\Exception $e){
-                $session->getFlashBag()->add('error',
-                    $translated->transChoice('msg.error.cadastro',0,array(),'messages')
-                    //. ' ' . $e->getMessage()
-                );
-                return $retorno;
+        if ($form->isSubmitted()) {
+            if($form->isValid()){
+                try{
+                    $this->get('sac.service.sac')->save($entity);
+                }catch(\Exception $e){
+                    $this->get('sac.service.msg')->error('msg.error.cadastro',null);
+                    return $retorno;
+                }
+                $this->get('sac.service.msg')->sucess('msg.sucess.cadastro');
+                $this->redirectToRoute('sac_new');
+            }else{
+                $validator = $this->get('validator');
+                $errors = $validator->validate($entity);
+                if (count($errors) > 0) {
+                    foreach($errors as $error){
+                        $this->get('sac.service.msg')->error($error->getMessage(),null);
+                    }
+                }
             }
-            $session->getFlashBag()->add('sucesso',
-                $translated->transChoice('msg.sucess.cadastro',0,array(),'messages')
-            );
-            $this->redirectToRoute('sac_new');
         }
-
         return $retorno;
     }
 
@@ -72,18 +114,12 @@ class SacController extends Controller
         $pedido = new Pedido();
         $cliente = new Cliente();
 
-        $translated = $this->get('translator');
-        $session = $this->get('session');
-
         if($request->getMethod() == "POST"){
             $objetos = [$chamado,$cliente];
             try{
                 $chamado = $this->get('sac.service.sac')->preparChamado($objetos,$request->request->get('chamado'));
             }catch(\Exception $e){
-                $session->getFlashBag()->add('error',
-                    $translated->transChoice('msg.error.cadastro',0,array(),'messages') . ' - ' .
-                    $e->getMessage()
-                );
+                $this->get('sac.service.msg')->error('msg.error.cadastro',$e->getMessage());
                 $this->redirectToRoute('sac_new');
             }
         }else{

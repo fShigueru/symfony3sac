@@ -1,0 +1,11 @@
+<nav class="navbar navbar-primary navbar-fixed-top">
+    <div class="container">
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="{{ path('sac') }}">{{ 'title.home'|transchoice(0,{}, 'messages') }}</a></li>
+                <li><a href="{{ path('sac_relatorio') }}">{{ 'title.relatorio'|transchoice(1,{}, 'messages') }}</a></li>
+                <li><a href="{{ path('sac_new') }}">{{ 'title.enviar.chamado'|transchoice(0,{}, 'messages') }}</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -8,7 +8,15 @@
     <br /><br />
     <div class="jumbotron">
         <h1 class="text-center">{{ 'title'|transchoice(0,{}, 'messages') }}</h1>
-        <p><a class="btn btn-primary btn-lg btn-block" href="{{ path('sac_new') }}" role="button">Novo Chamado</a></p>
-        <p><a class="btn btn-default btn-lg btn-block" href="#" role="button">Lista Chamados</a></p>
+        <p>
+            <a class="btn btn-primary btn-lg btn-block" href="{{ path('sac_new') }}" role="button">
+                {{ 'title.enviar.chamado'|transchoice(0,{}, 'messages') }}
+            </a>
+        </p>
+        <p>
+            <a class="btn btn-default btn-lg btn-block" href="#" role="button">
+                {{ 'title.relatorio'|transchoice(1,{}, 'messages') }}
+            </a>
+        </p>
     </div>
 {% endblock %}

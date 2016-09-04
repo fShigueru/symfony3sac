@@ -155,6 +155,7 @@ class appDevDebugProjectContainer extends Container
             'router.request_context' => 'getRouter_RequestContextService',
             'router_listener' => 'getRouterListenerService',
             'routing.loader' => 'getRouting_LoaderService',
+            'sac.service.msg' => 'getSac_Service_MsgService',
             'sac.service.sac' => 'getSac_Service_SacService',
             'security.authentication.guard_handler' => 'getSecurity_Authentication_GuardHandlerService',
             'security.authentication.manager' => 'getSecurity_Authentication_ManagerService',
@@ -360,7 +361,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getAssetic_Filter_UglifycssService()
     {
-        $this->services['assetic.filter.uglifycss'] = $instance = new \Assetic\Filter\UglifyCssFilter('/usr/local/bin/uglifycss', '/usr/bin/node');
+        $this->services['assetic.filter.uglifycss'] = $instance = new \Assetic\Filter\UglifyCssFilter('/usr/local/bin/uglifycss', '/usr/local/bin/node');
 
         $instance->setTimeout(NULL);
         $instance->setNodePaths(array());
@@ -381,7 +382,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getAssetic_Filter_Uglifyjs2Service()
     {
-        $this->services['assetic.filter.uglifyjs2'] = $instance = new \Assetic\Filter\UglifyJs2Filter('/usr/local/bin/uglifyjs', '/usr/bin/node');
+        $this->services['assetic.filter.uglifyjs2'] = $instance = new \Assetic\Filter\UglifyJs2Filter('/usr/local/bin/uglifyjs', '/usr/local/bin/node');
 
         $instance->setTimeout(NULL);
         $instance->setNodePaths(array());
@@ -449,7 +450,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getCache_AppService()
     {
-        $this->services['cache.app'] = $instance = new \Symfony\Component\Cache\Adapter\FilesystemAdapter('OKFfJtgPSv', '', (__DIR__.'/pools'));
+        $this->services['cache.app'] = $instance = new \Symfony\Component\Cache\Adapter\FilesystemAdapter('8C1cfma69v', '', (__DIR__.'/pools'));
 
         if ($this->has('monolog.logger.cache')) {
             $instance->setLogger($this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE));
@@ -481,7 +482,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getCache_SystemService()
     {
-        return $this->services['cache.system'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('ollowmcU+3', '', 'ZqgeQGtYNuvAcj0Qwesg0w', (__DIR__.'/pools'), $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['cache.system'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('j2IwbPozdV', '', 'x4lsWXMb8eo6ZzwRnDov1A', (__DIR__.'/pools'), $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
     /**
@@ -499,8 +500,8 @@ class appDevDebugProjectContainer extends Container
         $b = new \Symfony\Component\HttpKernel\CacheClearer\Psr6CacheClearer();
         $b->addPool($this->get('cache.app'));
         $b->addPool($this->get('cache.system'));
-        $b->addPool(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('XsVls3T+tn', '', 'ZqgeQGtYNuvAcj0Qwesg0w', (__DIR__.'/pools'), $a));
-        $b->addPool(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('xLmTXSKf9y', '', 'ZqgeQGtYNuvAcj0Qwesg0w', (__DIR__.'/pools'), $a));
+        $b->addPool(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('xQIyvdAYbJ', '', 'x4lsWXMb8eo6ZzwRnDov1A', (__DIR__.'/pools'), $a));
+        $b->addPool(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('QsYfJlhoAa', '', 'x4lsWXMb8eo6ZzwRnDov1A', (__DIR__.'/pools'), $a));
 
         return $this->services['cache_clearer'] = new \Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer(array(0 => $b));
     }
@@ -2222,6 +2223,19 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'sac.service.msg' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \SacBundle\Service\MsgService A SacBundle\Service\MsgService instance
+     */
+    protected function getSac_Service_MsgService()
+    {
+        return $this->services['sac.service.msg'] = new \SacBundle\Service\MsgService($this->get('translator.default'), $this->get('session'));
+    }
+
+    /**
      * Gets the 'sac.service.sac' service.
      *
      * This service is shared.
@@ -2343,7 +2357,7 @@ class appDevDebugProjectContainer extends Container
 
         $f = new \Symfony\Component\Security\Http\AccessMap();
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($f, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => new \Symfony\Component\Security\Core\User\InMemoryUserProvider()), 'main', $a, $this->get('debug.event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE), $c), 2 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '57cb21b6bbfd87.01037640', $a, $d), 3 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('debug.security.access.decision_manager'), $f, $d)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $c, new \Symfony\Component\Security\Http\HttpUtils($e, $e), 'main', NULL, NULL, NULL, $a, false));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($f, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => new \Symfony\Component\Security\Core\User\InMemoryUserProvider()), 'main', $a, $this->get('debug.event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE), $c), 2 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '57cc8fba20c826.49076213', $a, $d), 3 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('debug.security.access.decision_manager'), $f, $d)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $c, new \Symfony\Component\Security\Http\HttpUtils($e, $e), 'main', NULL, NULL, NULL, $a, false));
     }
 
     /**
@@ -3669,7 +3683,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Authentication_ManagerService()
     {
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('57cb21b6bbfd87.01037640')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('57cc8fba20c826.49076213')), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 
@@ -4179,14 +4193,14 @@ class appDevDebugProjectContainer extends Container
 
             ),
             'assetic.java.bin' => '/usr/bin/java',
-            'assetic.node.bin' => '/usr/bin/node',
+            'assetic.node.bin' => '/usr/local/bin/node',
             'assetic.ruby.bin' => '/usr/bin/ruby',
-            'assetic.scss.bin' => '/usr/bin/scss',
+            'assetic.scss.bin' => '/usr/local/bin/scss',
             'assetic.reactjsx.bin' => '/usr/bin/jsx',
             'assetic.filter.cssrewrite.class' => 'Assetic\\Filter\\CssRewriteFilter',
             'assetic.filter.uglifyjs2.class' => 'Assetic\\Filter\\UglifyJs2Filter',
             'assetic.filter.uglifyjs2.bin' => '/usr/local/bin/uglifyjs',
-            'assetic.filter.uglifyjs2.node' => '/usr/bin/node',
+            'assetic.filter.uglifyjs2.node' => '/usr/local/bin/node',
             'assetic.filter.uglifyjs2.timeout' => NULL,
             'assetic.filter.uglifyjs2.node_paths' => array(
 
@@ -4202,7 +4216,7 @@ class appDevDebugProjectContainer extends Container
             ),
             'assetic.filter.uglifycss.class' => 'Assetic\\Filter\\UglifyCssFilter',
             'assetic.filter.uglifycss.bin' => '/usr/local/bin/uglifycss',
-            'assetic.filter.uglifycss.node' => '/usr/bin/node',
+            'assetic.filter.uglifycss.node' => '/usr/local/bin/node',
             'assetic.filter.uglifycss.timeout' => NULL,
             'assetic.filter.uglifycss.node_paths' => array(
 

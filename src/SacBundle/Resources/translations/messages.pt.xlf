@@ -54,6 +54,50 @@
                 <source>msg.sucess.cadastro</source>
                 <target>Chamado enviado com sucesso!</target>
             </trans-unit>
+            <trans-unit id="14">
+                <source>msg.chamado.titulo.obrigatorio</source>
+                <target>O Título é obrigatório.</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>msg.chamado.observacao.obrigatorio</source>
+                <target>A Observação é obrigatória</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>msg.cliente.nome.obrigatorio</source>
+                <target>O Nome não pode ser em branco.</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>msg.cliente.email.obrigatorio</source>
+                <target>O E-mail não pode ser em branco.</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>msg.pedido.num.obrigatorio</source>
+                <target>Por favor, entre com o número do pedido.</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>title.filtrar</source>
+                <target>Filtrar</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>title.relatorio</source>
+                <target>{0} Relatório | {1} Relatórios</target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>title.cliente</source>
+                <target>{0} Cliente | {1} Clientes</target>
+            </trans-unit>
+            <trans-unit id="22">
+                <source>title.pedido</source>
+                <target>{0} Pedido | {1} Pedidos</target>
+            </trans-unit>
+            <trans-unit id="23">
+                <source>title.enviar.chamado</source>
+                <target>Enviar chamado</target>
+            </trans-unit>
+            <trans-unit id="24">
+                <source>title.home</source>
+                <target>Home</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

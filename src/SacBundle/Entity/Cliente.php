@@ -28,7 +28,7 @@ class Cliente implements ICliente
      *
      * @ORM\Column(name="nome", type="string", length=50)
      * @Assert\NotBlank(
-     *     message = "O Nome não pode ser em branco."
+     *     message = "msg.cliente.nome.obrigatorio"
      * )
      */
     private $nome;
@@ -40,6 +40,9 @@ class Cliente implements ICliente
      * @Assert\Email(
      *     message = "O email '{{ value }}' não é válido.",
      *     checkMX = true
+     * )
+     * @Assert\NotBlank(
+     *     message = "msg.cliente.email.obrigatorio"
      * )
      */
     private $email;

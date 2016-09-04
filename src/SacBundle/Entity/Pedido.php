@@ -28,7 +28,7 @@ class Pedido implements IPedido
      *
      * @ORM\Column(name="num_pedido", type="integer", unique=true)
      * @Assert\NotBlank(
-     *     message = "Por favor, entre com o número do pedido."
+     *     message = "msg.pedido.num.obrigatorio"
      * )
      */
     private $numPedido;

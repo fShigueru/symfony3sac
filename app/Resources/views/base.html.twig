@@ -21,6 +21,9 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        {{ include('@Sac/elements/menu.html.twig') }}
+        <br clear="all" />
+        <br clear="all" />
         <div class="container" ng-controller="SacCtrl">
             {{ include('@Sac/elements/alertas/error.html.twig') }}
             {{ include('@Sac/elements/alertas/sucesso.html.twig') }}

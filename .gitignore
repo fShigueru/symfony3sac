@@ -1,0 +1,15 @@
+/web/bundles/
+/var/bootstrap.php.cache
+/var/cache/*
+/app/config/parameters.yml
+/var/logs/*
+!var/cache/.gitkeep
+!var/logs/.gitkeep
+/vendor/
+/bin/
+web/assetic/*
+web/css/*
+web/js/*
+web/sac/*
+web/static/*
+

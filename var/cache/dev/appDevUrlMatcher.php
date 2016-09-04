@@ -100,68 +100,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/chamado')) {
-            // chamado_index
-            if (rtrim($pathinfo, '/') === '/chamado') {
-                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'HEAD'));
-                    goto not_chamado_index;
-                }
-
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'chamado_index');
-                }
-
-                return array (  '_controller' => 'SacBundle\\Controller\\ChamadoController::indexAction',  '_route' => 'chamado_index',);
-            }
-            not_chamado_index:
-
-            // chamado_new
-            if ($pathinfo === '/chamado/new') {
-                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
-                    goto not_chamado_new;
-                }
-
-                return array (  '_controller' => 'SacBundle\\Controller\\ChamadoController::newAction',  '_route' => 'chamado_new',);
-            }
-            not_chamado_new:
-
-            // chamado_show
-            if (preg_match('#^/chamado/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'HEAD'));
-                    goto not_chamado_show;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'chamado_show')), array (  '_controller' => 'SacBundle\\Controller\\ChamadoController::showAction',));
-            }
-            not_chamado_show:
-
-            // chamado_edit
-            if (preg_match('#^/chamado/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
-                    goto not_chamado_edit;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'chamado_edit')), array (  '_controller' => 'SacBundle\\Controller\\ChamadoController::editAction',));
-            }
-            not_chamado_edit:
-
-            // chamado_delete
-            if (preg_match('#^/chamado/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                if ($this->context->getMethod() != 'DELETE') {
-                    $allow[] = 'DELETE';
-                    goto not_chamado_delete;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'chamado_delete')), array (  '_controller' => 'SacBundle\\Controller\\ChamadoController::deleteAction',));
-            }
-            not_chamado_delete:
-
-        }
-
         // sac
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
@@ -172,16 +110,24 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         if (0 === strpos($pathinfo, '/sac')) {
-            // sac_new
-            if ($pathinfo === '/sac/chamado/new') {
-                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
-                    goto not_sac_new;
+            if (0 === strpos($pathinfo, '/sac/chamado')) {
+                // sac_relatorio
+                if ($pathinfo === '/sac/chamado/relatorios') {
+                    return array (  '_controller' => 'SacBundle\\Controller\\SacController::relatorioAction',  '_route' => 'sac_relatorio',);
                 }
 
-                return array (  '_controller' => 'SacBundle\\Controller\\SacController::newAction',  '_route' => 'sac_new',);
+                // sac_new
+                if ($pathinfo === '/sac/chamado/new') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                        goto not_sac_new;
+                    }
+
+                    return array (  '_controller' => 'SacBundle\\Controller\\SacController::newAction',  '_route' => 'sac_new',);
+                }
+                not_sac_new:
+
             }
-            not_sac_new:
 
             if (0 === strpos($pathinfo, '/sac/ajax/verifica-')) {
                 // verificar-pedido

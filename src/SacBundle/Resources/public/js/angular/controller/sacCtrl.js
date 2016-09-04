@@ -37,9 +37,8 @@ appControllers.controller('SacCtrl', ['$scope','postService','config', function 
             var data = {cliente: cliente};
             postService.postService(data,config.urlVerClienteEmail).then(
                 function(data){
-                    if(data.data){
+                    if(data.data)
                         $scope.nome = data.data.nome;
-                    }
                     $scope.blocoNome = true;
                     $scope.blocoChamado = true;
                     $scope.loader = false;

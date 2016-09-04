@@ -1,0 +1,61 @@
+<div id="container">
+    <div class="row">
+        <div>
+            <div class="x_panel">
+                <div class="x_content">
+                    <table class="table table-striped responsive-utilities jambo_table">
+                        <thead>
+                            <tr class="headings">
+                                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                                    <th>{{ form_row(form.email) }}</th>
+                                    <th>{{ form_row(form.numPedido) }}</th>
+                                    <th>{{ form_row(form.submit) }}</th>
+                                    <th></th>
+                                {{form_end(form) }}
+                            </tr>
+                            <tr class="headings">
+                                <th>{{ 'title.cliente'|transchoice(0,{}, 'messages') }}</th>
+                                <th>{{ 'title.pedido'|transchoice(0,{}, 'messages') }}</th>
+                                <th>{{ 'title.title'|transchoice(0,{}, 'messages') }}</th>
+                                <th>{{ 'title.observacao'|transchoice(0,{}, 'messages') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for entity in entities %}
+                                <tr class="even pointer">
+                                    <td>
+                                        {{ entity.cliente.nome }}
+                                        <br />
+                                        <small>{{ entity.cliente.email }}</small>
+                                    </td>
+                                    <td>{{ entity.pedido.numPedido }}</td>
+                                    <td>{{ entity.titulo }}</td>
+                                    <td>{{ entity.observacao }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center">
+                    <nav aria-label="Page navigation">
+                    {% if maxPages > 1 %}
+                        <ul class="pagination pagination-sm">
+                            <li {{ thisPage == 1 ? 'class="disabled"' }}>
+                                <a href="{{ path('sac_relatorio')  ~ '?' ~ url ~ 'page=' ~ (thisPage-1 < 1 ? 1 : thisPage-1) }}">«</a>
+                            </li>
+                            {% for i in 1..maxPages %}
+                                <li {{ thisPage == i ? 'class="active"' }}>
+                                    <a href="{{ path('sac_relatorio') ~ '?' ~ url ~ 'page=' ~ i }}">{{ i }}</a>
+                                </li>
+                            {% endfor %}
+                            <li {{ thisPage == maxPages ? 'class="disabled"' }}>
+                                <a href="{{ path('sac_relatorio')  ~ '?' ~ url ~ 'page=' ~ (thisPage+1 <= maxPages ? thisPage+1 : thisPage) }}">»</a>
+                            </li>
+                        </ul>
+                    {% endif %}
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

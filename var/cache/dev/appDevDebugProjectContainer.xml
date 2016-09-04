@@ -336,14 +336,14 @@
     <parameter key="assetic.write_to">/vagrant/vhosts/public/teste/sac/app/../web/static/</parameter>
     <parameter key="assetic.variables" type="collection"/>
     <parameter key="assetic.java.bin">/usr/bin/java</parameter>
-    <parameter key="assetic.node.bin">/usr/bin/node</parameter>
+    <parameter key="assetic.node.bin">/usr/local/bin/node</parameter>
     <parameter key="assetic.ruby.bin">/usr/bin/ruby</parameter>
-    <parameter key="assetic.scss.bin">/usr/bin/scss</parameter>
+    <parameter key="assetic.scss.bin">/usr/local/bin/scss</parameter>
     <parameter key="assetic.reactjsx.bin">/usr/bin/jsx</parameter>
     <parameter key="assetic.filter.cssrewrite.class">Assetic\Filter\CssRewriteFilter</parameter>
     <parameter key="assetic.filter.uglifyjs2.class">Assetic\Filter\UglifyJs2Filter</parameter>
     <parameter key="assetic.filter.uglifyjs2.bin">/usr/local/bin/uglifyjs</parameter>
-    <parameter key="assetic.filter.uglifyjs2.node">/usr/bin/node</parameter>
+    <parameter key="assetic.filter.uglifyjs2.node">/usr/local/bin/node</parameter>
     <parameter key="assetic.filter.uglifyjs2.timeout">null</parameter>
     <parameter key="assetic.filter.uglifyjs2.node_paths" type="collection"/>
     <parameter key="assetic.filter.uglifyjs2.compress">false</parameter>
@@ -355,7 +355,7 @@
     <parameter key="assetic.filter.uglifyjs2.defines" type="collection"/>
     <parameter key="assetic.filter.uglifycss.class">Assetic\Filter\UglifyCssFilter</parameter>
     <parameter key="assetic.filter.uglifycss.bin">/usr/local/bin/uglifycss</parameter>
-    <parameter key="assetic.filter.uglifycss.node">/usr/bin/node</parameter>
+    <parameter key="assetic.filter.uglifycss.node">/usr/local/bin/node</parameter>
     <parameter key="assetic.filter.uglifycss.timeout">null</parameter>
     <parameter key="assetic.filter.uglifycss.node_paths" type="collection"/>
     <parameter key="assetic.filter.uglifycss.expand_vars">false</parameter>
@@ -444,6 +444,10 @@
     <service id="sac.service.sac" class="SacBundle\Service\SacService">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="translator.default"/>
+    </service>
+    <service id="sac.service.msg" class="SacBundle\Service\MsgService">
+      <argument type="service" id="translator.default"/>
+      <argument type="service" id="session"/>
     </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
@@ -564,9 +568,9 @@
               <argument type="service">
                 <service class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
                   <tag name="cache.pool"/>
-                  <argument>XsVls3T+tn</argument>
+                  <argument>xQIyvdAYbJ</argument>
                   <argument></argument>
-                  <argument>ZqgeQGtYNuvAcj0Qwesg0w</argument>
+                  <argument>x4lsWXMb8eo6ZzwRnDov1A</argument>
                   <argument>/vagrant/vhosts/public/teste/sac/var/cache/dev/pools</argument>
                   <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
                   <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -577,9 +581,9 @@
               <argument type="service">
                 <service class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
                   <tag name="cache.pool"/>
-                  <argument>xLmTXSKf9y</argument>
+                  <argument>QsYfJlhoAa</argument>
                   <argument></argument>
-                  <argument>ZqgeQGtYNuvAcj0Qwesg0w</argument>
+                  <argument>x4lsWXMb8eo6ZzwRnDov1A</argument>
                   <argument>/vagrant/vhosts/public/teste/sac/var/cache/dev/pools</argument>
                   <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
                   <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -1135,7 +1139,7 @@
     </service>
     <service id="cache.app" class="Symfony\Component\Cache\Adapter\FilesystemAdapter">
       <tag name="cache.pool"/>
-      <argument>OKFfJtgPSv</argument>
+      <argument>8C1cfma69v</argument>
       <argument></argument>
       <argument>/vagrant/vhosts/public/teste/sac/var/cache/dev/pools</argument>
       <call method="setLogger">
@@ -1144,9 +1148,9 @@
     </service>
     <service id="cache.system" class="Symfony\Component\Cache\Adapter\AdapterInterface">
       <tag name="cache.pool"/>
-      <argument>ollowmcU+3</argument>
+      <argument>j2IwbPozdV</argument>
       <argument></argument>
-      <argument>ZqgeQGtYNuvAcj0Qwesg0w</argument>
+      <argument>x4lsWXMb8eo6ZzwRnDov1A</argument>
       <argument>/vagrant/vhosts/public/teste/sac/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -1953,7 +1957,7 @@
       <argument type="collection">
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>57cb21b6bbfd87.01037640</argument>
+            <argument>57cc8fba20c826.49076213</argument>
           </service>
         </argument>
       </argument>
@@ -2087,7 +2091,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>57cb21b6bbfd87.01037640</argument>
+            <argument>57cc8fba20c826.49076213</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2791,7 +2795,7 @@
     <service id="assetic.filter.uglifyjs2" class="Assetic\Filter\UglifyJs2Filter">
       <tag name="assetic.filter" alias="uglifyjs2"/>
       <argument>/usr/local/bin/uglifyjs</argument>
-      <argument>/usr/bin/node</argument>
+      <argument>/usr/local/bin/node</argument>
       <call method="setTimeout">
         <argument>null</argument>
       </call>
@@ -2823,7 +2827,7 @@
     <service id="assetic.filter.uglifycss" class="Assetic\Filter\UglifyCssFilter">
       <tag name="assetic.filter" alias="uglifycss"/>
       <argument>/usr/local/bin/uglifycss</argument>
-      <argument>/usr/bin/node</argument>
+      <argument>/usr/local/bin/node</argument>
       <call method="setTimeout">
         <argument>null</argument>
       </call>

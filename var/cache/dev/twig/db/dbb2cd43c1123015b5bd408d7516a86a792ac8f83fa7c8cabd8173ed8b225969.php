@@ -1,6 +1,6 @@
 <?php
 
-/* @Sac/elements/alertas/error.html.twig */
+/* SacBundle:elements/alertas:error.html.twig */
 class __TwigTemplate_475b47b6af5abea354f8dabdc457462165c3c8b2ccd56516b3feee54576f33a0 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -15,8 +15,8 @@ class __TwigTemplate_475b47b6af5abea354f8dabdc457462165c3c8b2ccd56516b3feee54576
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_93ccaa65545d14755e42af05edeb1b5f8f37b07fe2cfb95dd2d927166afb2ec5 = $this->env->getExtension("native_profiler");
-        $__internal_93ccaa65545d14755e42af05edeb1b5f8f37b07fe2cfb95dd2d927166afb2ec5->enter($__internal_93ccaa65545d14755e42af05edeb1b5f8f37b07fe2cfb95dd2d927166afb2ec5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@Sac/elements/alertas/error.html.twig"));
+        $__internal_3f5241e9da564559050ae412834074a2edfd5e05bb9bc81bec8a0ba94d54a667 = $this->env->getExtension("native_profiler");
+        $__internal_3f5241e9da564559050ae412834074a2edfd5e05bb9bc81bec8a0ba94d54a667->enter($__internal_3f5241e9da564559050ae412834074a2edfd5e05bb9bc81bec8a0ba94d54a667_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SacBundle:elements/alertas:error.html.twig"));
 
         // line 1
         $context['_parent'] = $context;
@@ -37,13 +37,13 @@ class __TwigTemplate_475b47b6af5abea354f8dabdc457462165c3c8b2ccd56516b3feee54576
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         
-        $__internal_93ccaa65545d14755e42af05edeb1b5f8f37b07fe2cfb95dd2d927166afb2ec5->leave($__internal_93ccaa65545d14755e42af05edeb1b5f8f37b07fe2cfb95dd2d927166afb2ec5_prof);
+        $__internal_3f5241e9da564559050ae412834074a2edfd5e05bb9bc81bec8a0ba94d54a667->leave($__internal_3f5241e9da564559050ae412834074a2edfd5e05bb9bc81bec8a0ba94d54a667_prof);
 
     }
 
     public function getTemplateName()
     {
-        return "@Sac/elements/alertas/error.html.twig";
+        return "SacBundle:elements/alertas:error.html.twig";
     }
 
     public function isTraitable()

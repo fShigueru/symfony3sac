@@ -4,3 +4,9 @@ services:
     arguments:
       - "@doctrine.orm.default_entity_manager"
       - "@translator.default"
+
+  sac.service.msg:
+    class: SacBundle\Service\MsgService
+    arguments:
+      - "@translator.default"
+      - "@session"

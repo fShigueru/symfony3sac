@@ -64,8 +64,9 @@
         </div>
         <div class="loader" ng-show="loader"></div>
         <hr />
-        {{ form_row(form.submit, {'attr': {'ng-disabled': 'chamado.$invalid'}}) }}
-
+        <div ng-if="blocoChamado">
+            {{ form_row(form.submit, {'attr': {'ng-disabled': 'chamado.$invalid'}}) }}
+        </div>
     {{form_end(form) }}
 {% endblock %}
 {% block javascripts %}

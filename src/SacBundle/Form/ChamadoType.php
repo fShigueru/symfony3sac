@@ -24,10 +24,12 @@ class ChamadoType extends AbstractType
             ->add('observacao',TextareaType::class, ['label' => 'title.observacao' , 'required' => true, 'attr' => ['class' => 'form-control']])
             ->add('cliente', ClienteType::class, [
                 'label' => false,
+                'cascade_validation' => true,
                 'data_class' => 'SacBundle\Entity\Cliente'
             ])
             ->add('pedido', PedidoType::class, [
                 'label' => false,
+                'cascade_validation' => true,
                 'data_class' => 'SacBundle\Entity\Pedido'
             ])
             ->add('submit',SubmitType::class,['label'=>'title.enviar', 'attr' => ['class' => 'btn btn-primary btn-lg btn-block']])
@@ -41,7 +43,6 @@ class ChamadoType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'SacBundle\Entity\Chamado',
-            'cascade_validation' => true,
             'csrf_protection' => false
         ));
     }

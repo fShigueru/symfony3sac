@@ -22,50 +22,67 @@ class __TwigTemplate_a480aa286297a0749cd5b6b2e252676e7108d21fe98047fc0d0c02a39af
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_ba1b98c9d8eeba2ecd91fe4177bb2c8c5e53d1549f216c65ec89a502b5f5df76 = $this->env->getExtension("native_profiler");
-        $__internal_ba1b98c9d8eeba2ecd91fe4177bb2c8c5e53d1549f216c65ec89a502b5f5df76->enter($__internal_ba1b98c9d8eeba2ecd91fe4177bb2c8c5e53d1549f216c65ec89a502b5f5df76_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SacBundle:sac:index.html.twig"));
+        $__internal_d3e24684630dc5561da6ff3fa5e6a9ed480be1fb75dfdba4e467407e4e15343b = $this->env->getExtension("native_profiler");
+        $__internal_d3e24684630dc5561da6ff3fa5e6a9ed480be1fb75dfdba4e467407e4e15343b->enter($__internal_d3e24684630dc5561da6ff3fa5e6a9ed480be1fb75dfdba4e467407e4e15343b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SacBundle:sac:index.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_ba1b98c9d8eeba2ecd91fe4177bb2c8c5e53d1549f216c65ec89a502b5f5df76->leave($__internal_ba1b98c9d8eeba2ecd91fe4177bb2c8c5e53d1549f216c65ec89a502b5f5df76_prof);
+        $__internal_d3e24684630dc5561da6ff3fa5e6a9ed480be1fb75dfdba4e467407e4e15343b->leave($__internal_d3e24684630dc5561da6ff3fa5e6a9ed480be1fb75dfdba4e467407e4e15343b_prof);
 
     }
 
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        $__internal_47d549ed2249124ea23037d633a17645820f33c148ca4e0a9ab2bd8065ebc504 = $this->env->getExtension("native_profiler");
-        $__internal_47d549ed2249124ea23037d633a17645820f33c148ca4e0a9ab2bd8065ebc504->enter($__internal_47d549ed2249124ea23037d633a17645820f33c148ca4e0a9ab2bd8065ebc504_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_1918d77efbeb88df3030d93921b8c7c2c70dbd1a97dda761c1e128cf1e3ebc16 = $this->env->getExtension("native_profiler");
+        $__internal_1918d77efbeb88df3030d93921b8c7c2c70dbd1a97dda761c1e128cf1e3ebc16->enter($__internal_1918d77efbeb88df3030d93921b8c7c2c70dbd1a97dda761c1e128cf1e3ebc16_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         // line 4
         echo "    ";
-        echo twig_escape_filter($this->env, $this->env->getExtension('translator')->transchoice("title.seo", 0, array(), "messagesPaginaBundle"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('translator')->transchoice("title", 0, array(), "messages"), "html", null, true);
         echo "
 ";
         
-        $__internal_47d549ed2249124ea23037d633a17645820f33c148ca4e0a9ab2bd8065ebc504->leave($__internal_47d549ed2249124ea23037d633a17645820f33c148ca4e0a9ab2bd8065ebc504_prof);
+        $__internal_1918d77efbeb88df3030d93921b8c7c2c70dbd1a97dda761c1e128cf1e3ebc16->leave($__internal_1918d77efbeb88df3030d93921b8c7c2c70dbd1a97dda761c1e128cf1e3ebc16_prof);
 
     }
 
     // line 7
     public function block_body($context, array $blocks = array())
     {
-        $__internal_dfdf06e72194d98d927c4d3396c3a11d3e10c261ff515f866ed3736ce66b8c78 = $this->env->getExtension("native_profiler");
-        $__internal_dfdf06e72194d98d927c4d3396c3a11d3e10c261ff515f866ed3736ce66b8c78->enter($__internal_dfdf06e72194d98d927c4d3396c3a11d3e10c261ff515f866ed3736ce66b8c78_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_e4d19b48b78261a3434aeb053545f639a9fb4a2b3d01b2a486edc3403b04e92f = $this->env->getExtension("native_profiler");
+        $__internal_e4d19b48b78261a3434aeb053545f639a9fb4a2b3d01b2a486edc3403b04e92f->enter($__internal_e4d19b48b78261a3434aeb053545f639a9fb4a2b3d01b2a486edc3403b04e92f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 8
         echo "<br /><br />
     <div class=\"jumbotron\">
-        <h1 class=\"text-center\">Sistema de SAC</h1>
-        <p><a class=\"btn btn-primary btn-lg btn-block\" href=\"";
-        // line 11
+        <h1 class=\"text-center\">";
+        // line 10
+        echo twig_escape_filter($this->env, $this->env->getExtension('translator')->transchoice("title", 0, array(), "messages"), "html", null, true);
+        echo "</h1>
+        <p>
+            <a class=\"btn btn-primary btn-lg btn-block\" href=\"";
+        // line 12
         echo $this->env->getExtension('routing')->getPath("sac_new");
-        echo "\" role=\"button\">Novo Chamado</a></p>
-        <p><a class=\"btn btn-default btn-lg btn-block\" href=\"#\" role=\"button\">Lista Chamados</a></p>
+        echo "\" role=\"button\">
+                ";
+        // line 13
+        echo twig_escape_filter($this->env, $this->env->getExtension('translator')->transchoice("title.enviar.chamado", 0, array(), "messages"), "html", null, true);
+        echo "
+            </a>
+        </p>
+        <p>
+            <a class=\"btn btn-default btn-lg btn-block\" href=\"#\" role=\"button\">
+                ";
+        // line 18
+        echo twig_escape_filter($this->env, $this->env->getExtension('translator')->transchoice("title.relatorio", 1, array(), "messages"), "html", null, true);
+        echo "
+            </a>
+        </p>
     </div>
 ";
         
-        $__internal_dfdf06e72194d98d927c4d3396c3a11d3e10c261ff515f866ed3736ce66b8c78->leave($__internal_dfdf06e72194d98d927c4d3396c3a11d3e10c261ff515f866ed3736ce66b8c78_prof);
+        $__internal_e4d19b48b78261a3434aeb053545f639a9fb4a2b3d01b2a486edc3403b04e92f->leave($__internal_e4d19b48b78261a3434aeb053545f639a9fb4a2b3d01b2a486edc3403b04e92f_prof);
 
     }
 
@@ -81,20 +98,28 @@ class __TwigTemplate_a480aa286297a0749cd5b6b2e252676e7108d21fe98047fc0d0c02a39af
 
     public function getDebugInfo()
     {
-        return array (  62 => 11,  57 => 8,  51 => 7,  41 => 4,  35 => 3,  11 => 1,);
+        return array (  78 => 18,  70 => 13,  66 => 12,  61 => 10,  57 => 8,  51 => 7,  41 => 4,  35 => 3,  11 => 1,);
     }
 }
 /* {% extends 'base.html.twig' %}*/
 /* */
 /* {% block title %}*/
-/*     {{ 'title.seo'|transchoice(0,{}, 'messagesPaginaBundle') }}*/
+/*     {{ 'title'|transchoice(0,{}, 'messages') }}*/
 /* {% endblock %}*/
 /* */
 /* {% block body -%}*/
 /*     <br /><br />*/
 /*     <div class="jumbotron">*/
-/*         <h1 class="text-center">Sistema de SAC</h1>*/
-/*         <p><a class="btn btn-primary btn-lg btn-block" href="{{ path('sac_new') }}" role="button">Novo Chamado</a></p>*/
-/*         <p><a class="btn btn-default btn-lg btn-block" href="#" role="button">Lista Chamados</a></p>*/
+/*         <h1 class="text-center">{{ 'title'|transchoice(0,{}, 'messages') }}</h1>*/
+/*         <p>*/
+/*             <a class="btn btn-primary btn-lg btn-block" href="{{ path('sac_new') }}" role="button">*/
+/*                 {{ 'title.enviar.chamado'|transchoice(0,{}, 'messages') }}*/
+/*             </a>*/
+/*         </p>*/
+/*         <p>*/
+/*             <a class="btn btn-default btn-lg btn-block" href="#" role="button">*/
+/*                 {{ 'title.relatorio'|transchoice(1,{}, 'messages') }}*/
+/*             </a>*/
+/*         </p>*/
 /*     </div>*/
 /* {% endblock %}*/

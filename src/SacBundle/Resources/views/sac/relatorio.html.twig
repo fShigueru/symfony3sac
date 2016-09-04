@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title'|transchoice(0,{}, 'messages') }} :
+    {{ 'title.relatorio'|transchoice(1,{}, 'messages') }}
+{% endblock %}
+
+{% block body -%}
+    <div class="page-header">
+        <h2>{{ 'title.relatorio'|transchoice(1,{}, 'messages') }}</h2>
+    </div>
+
+    {{ include('@Sac/elements/relatorio/lista.html.twig') }}
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts
+    '@SacBundle/Resources/public/js/angular/value/configValue.js'
+    '@angular_http_post'
+    '@SacBundle/Resources/public/js/angular/controller/sacCtrl.js'
+    output='sac/js/script.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
